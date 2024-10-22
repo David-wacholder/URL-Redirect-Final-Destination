@@ -4,7 +4,7 @@ const https = require('https');
 const cors = require('cors');
 const path = require('path'); // הוספת path כדי להגיש קבצי HTML
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware to enable CORS
 app.use(cors());
