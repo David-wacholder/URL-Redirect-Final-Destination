@@ -1,16 +1,21 @@
 const express = require('express');
 const axios = require('axios');
 const https = require('https');
-const cors = require('cors'); // הוספת CORS
+const cors = require('cors');
+const path = require('path'); // הוספת path כדי להגיש קבצי HTML
 const app = express();
 const port = 3000;
 
 // Middleware to enable CORS
-app.use(cors()); // שימוש ב-CORS
+app.use(cors());
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Endpoint to get final URL
 app.post('/get-final-url', async (req, res) => {
     let { url } = req.body;
 
@@ -40,7 +45,12 @@ app.post('/get-final-url', async (req, res) => {
     }
 });
 
+// Serve the index.html file when accessing the root URL
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
+// Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
