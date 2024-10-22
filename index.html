@@ -85,9 +85,10 @@
             resultDiv.textContent = '';  // Clear previous result
 
 
-const apiUrl = typeof process !== 'undefined' && process.env.NODE_ENV === 'development'
+// קביעת כתובת ה-API לפי ה-Hostname של הדף
+const apiUrl = window.location.hostname.includes('localhost') 
     ? 'http://localhost:3000/get-final-url' 
-    : 'https://url-redirect-final-destination.vercel.app/get-final-url'; 
+    : `https://${window.location.hostname}/get-final-url`; // בונה את ה-URL על בסיס ה-Hostname הנוכחי
 
 try {
     const response = await fetch(apiUrl, {
@@ -103,11 +104,11 @@ try {
     }
 
     const data = await response.json();
-    console.log(data.finalUrl); 
+    console.log(data.finalUrl); // עשה עם התוצאה מה שנדרש
 } catch (error) {
     console.error('Error fetching the final URL:', error);
 }
- 
+
 //url-redirect-final-destination
                
                 const data = await response.json();
