@@ -12,6 +12,44 @@ No more guessing or wasting time clicking links just to find out where they lead
 ## 🚀 Live Demo
 [Check out the live version here!](https://url-redirect-final-destination.vercel.app) 🔥
 
+מעולה! הנה קטע שתוכל להוסיף ל-README כדי להסביר כיצד להשתמש ב-API:
+
+### 🌍 API Usage
+
+To check the final destination of a URL, send a `POST` request to the `/get-final-url` endpoint with a JSON payload:
+
+#### Request:
+- **URL:** `https://url-redirect-final-destination.vercel.app/get-final-url`
+- **Method:** `POST`
+- **Headers:** 
+  - `Content-Type: application/json`
+- **Body:**
+  ```json
+  {
+    "url": "https://example.com"
+  }
+  ```
+
+#### Example Response:
+If the URL is successfully resolved, the response will be:
+```json
+{
+  "finalUrl": "https://final-destination.com"
+}
+```
+
+#### Error Handling:
+If there's an issue fetching the URL, you'll receive an error response:
+```json
+{
+  "error": "Error fetching the URL",
+  "details": "Error details here"
+}
+```
+
+### Testing Locally
+To test the API locally, use the URL: `http://localhost:3000/get-final-url` instead of the Vercel deployment URL.
+
 ## 🛠️ Installation
 
 ### Prerequisites
