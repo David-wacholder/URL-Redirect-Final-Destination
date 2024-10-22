@@ -84,10 +84,10 @@
             resultDiv.style.display = 'none';
             resultDiv.textContent = '';  // Clear previous result
 
-          // קביעת כתובת ה-API לפי ה-Hostname של הדף
-const apiUrl = window.location.origin.includes('localhost') 
+const isLocal = window.location.hostname === 'localhost';
+const apiUrl = isLocal 
     ? 'http://localhost:3000/get-final-url' 
-    : `https://${window.location.origin}/get-final-url`; // בונה את ה-URL על בסיס ה-Hostname הנוכחי
+    : 'https://url-redirect-final-destination.vercel.app/get-final-url'; // עדכן לכתובת של Vercel שלך
 
 try {
     const response = await fetch(apiUrl, {
