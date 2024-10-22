@@ -84,9 +84,9 @@
             resultDiv.style.display = 'none';
             resultDiv.textContent = '';  // Clear previous result
 
-          const apiUrl = window.location.hostname === 'localhost' 
+          const apiUrl = typeof process !== 'undefined' && process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000/get-final-url' 
-    : 'https://url-redirect-final-destination.vercel.app/get-final-url'; // עדכן את זה ל-URL שלך ב-Vercel
+    : 'https://url-redirect-final-destination.vercel.app/get-final-url'; 
 
 try {
     const response = await fetch(apiUrl, {
@@ -102,11 +102,12 @@ try {
     }
 
     const data = await response.json();
-    console.log(data.finalUrl); // עשה עם התוצאה מה שנדרש
+    console.log(data.finalUrl); 
 } catch (error) {
     console.error('Error fetching the final URL:', error);
 }
-
+ 
+//url-redirect-final-destination
 
                 const data = await response.json();
                 
