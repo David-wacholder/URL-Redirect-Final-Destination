@@ -85,12 +85,9 @@
             resultDiv.textContent = '';  // Clear previous result
 
 
-const isLocal = window.location.hostname === 'localhost';
-const apiUrl = isLocal 
-    ? 'http://localhost:3000/get-final-url' 
-    : 'https://url-redirect-final-destination.vercel.app/get-final-url'; // עדכן לכתובת של Vercel שלך
-
 try {
+    const apiUrl = `${window.location.origin}/get-final-url`; // יצירת כתובת דינמית ל-Vercel
+
     const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
