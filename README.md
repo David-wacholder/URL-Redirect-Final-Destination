@@ -42,7 +42,6 @@ https://url-redirect-final-destination.vercel.app/get-final-url?url=https://shor
 ```
 
 The server will follow the redirection chain and automatically redirect to the final destination.
-```
 
 ## 🛠️ Installation
 
