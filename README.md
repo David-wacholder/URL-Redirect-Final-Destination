@@ -9,10 +9,8 @@ No more guessing or wasting time clicking links just to find out where they lead
 - 📋 Automatically adds `https://` if you forgot it!
 - 🌍 API + Beautiful HTML interface for ease of use.
 
-<!---
 ## 🚀 Live Demo
-[Check out the live version here!](https://your-live-link.com)
---->
+[Check out the live version here!](https://url-redirect-final-destination.vercel.app) 🔥
 
 ## 🛠️ Installation
 
@@ -74,27 +72,45 @@ You can also use the beautiful web interface provided at `http://localhost:3000`
 
 ## 🚀 Deployment
 
-### GitHub Pages (Frontend only)
-You can deploy the web interface using GitHub Pages:
-1. Go to your repository settings.
-2. Enable GitHub Pages from the `main` branch.
-3. Voilà! Your frontend is live!
+### Vercel Deployment (Full Stack) ⚡️
 
-### Heroku Deployment (Full Stack)
+Deploying to Vercel is a breeze – here’s how to get your API and frontend live in minutes:
 
-To deploy the API + Frontend to Heroku:
-1. **Create a Heroku app** 🏗️
+1. **Install the Vercel CLI** (if you haven’t already) 📥
    ```bash
-   heroku create
+   npm install -g vercel
    ```
 
-2. **Push to Heroku** 🚀
+2. **Log in to your Vercel account** (or create one at [Vercel](https://vercel.com/)) 👤
    ```bash
-   git push heroku main
+   vercel login
    ```
 
-3. **Access your app** 🌐
-   Visit `https://your-heroku-app.herokuapp.com`!
+3. **Deploy the project** 🚀
+   - Navigate to your project folder and run:
+     ```bash
+     vercel
+     ```
+   - Follow the prompts to set up your project. For most options, you can just press Enter to accept the defaults.
+   - Vercel will automatically detect the framework and configure everything for you!
+
+4. **Set the deployment settings** ⚙️
+   - Make sure your `package.json` includes a start script:
+     ```json
+     "scripts": {
+       "start": "node server.js"
+     }
+     ```
+   - If you need to add any environment variables, go to your Vercel dashboard and set them under the "Environment Variables" section.
+
+5. **Enjoy your live app!** 🎉
+   - After deploying, Vercel will provide a live URL (e.g., `https://your-vercel-app.vercel.app`). Use this link to access your app.
+
+6. **Update your HTML to use the Vercel URL** 🌍
+   - Update the `apiUrl` in your JavaScript code:
+     ```javascript
+     const apiUrl = "https://your-vercel-app.vercel.app/get-final-url";
+     ```
 
 ## 🛠️ Technologies Used
 
@@ -110,3 +126,6 @@ Feel free to fork, clone, and submit pull requests! We love contributors. 💡
 ## 📝 License
 
 This project is licensed under the MIT License. Enjoy and modify as you like! 🎉
+
+---
+[![https://vercel.com?utm\_source=github\_readme\_stats\_team\&utm\_campaign=oss](https://raw.githubusercontent.com/anuraghazra/github-readme-stats/refs/heads/master/powered-by-vercel.svg)](https://vercel.com?utm_source=URL-Redirect-Final-Destination\&utm_campaign=oss)
