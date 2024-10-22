@@ -12,41 +12,37 @@ No more guessing or wasting time clicking links just to find out where they lead
 ## 🚀 Live Demo
 [Check out the live version here!](https://url-redirect-final-destination.vercel.app) 🔥
 
-### 🌍 API Usage
+## 🌍 API Usage
 
-To check the final destination of a URL, send a `POST` request to the `/get-final-url` endpoint with a JSON payload:
+### POST Request
+Send a `POST` request to the `/get-final-url` endpoint with the JSON payload:
 
-#### Request:
-- **URL:** `https://url-redirect-final-destination.vercel.app/get-final-url`
-- **Method:** `POST`
-- **Headers:** 
-  - `Content-Type: application/json`
-- **Body:**
-  ```json
-  {
-    "url": "https://example.com"
-  }
-  ```
+```bash
+POST https://url-redirect-final-destination.vercel.app/get-final-url
+Content-Type: application/json
 
-#### Example Response:
-If the URL is successfully resolved, the response will be:
-```json
 {
-  "finalUrl": "https://final-destination.com"
+  "url": "your-shortened-url-here"
 }
 ```
 
-#### Error Handling:
-If there's an issue fetching the URL, you'll receive an error response:
+Example response:
 ```json
 {
-  "error": "Error fetching the URL",
-  "details": "Error details here"
+  "finalUrl": "https://final-url.com"
 }
 ```
 
-### Testing Locally
-To test the API locally, use the URL: `http://localhost:3000/get-final-url` instead of the Vercel deployment URL.
+### GET Request for Redirection
+You can also use the `/get-final-url` endpoint with a `GET` request to perform an anonymous redirect to the final destination. This is useful when you want to avoid direct redirection from your IP.
+
+#### Usage
+```bash
+https://url-redirect-final-destination.vercel.app/get-final-url?url=https://short.url/here
+```
+
+The server will follow the redirection chain and automatically redirect to the final destination.
+```
 
 ## 🛠️ Installation
 
