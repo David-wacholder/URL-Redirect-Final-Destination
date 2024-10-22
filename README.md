@@ -12,8 +12,6 @@ No more guessing or wasting time clicking links just to find out where they lead
 ## 🚀 Live Demo
 [Check out the live version here!](https://url-redirect-final-destination.vercel.app) 🔥
 
-מעולה! הנה קטע שתוכל להוסיף ל-README כדי להסביר כיצד להשתמש ב-API:
-
 ### 🌍 API Usage
 
 To check the final destination of a URL, send a `POST` request to the `/get-final-url` endpoint with a JSON payload:
