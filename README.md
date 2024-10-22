@@ -160,3 +160,6 @@ This project is licensed under the MIT License. Enjoy and modify as you like! �
 
 ---
 [![https://vercel.com?utm\_source=github\_readme\_stats\_team\&utm\_campaign=oss](https://raw.githubusercontent.com/anuraghazra/github-readme-stats/refs/heads/master/powered-by-vercel.svg)](https://vercel.com?utm_source=URL-Redirect-Final-Destination\&utm_campaign=oss)
+
+
+<sub><sup>⚙️ This content was generated with the assistance of Gen AI.</sup></sub>
