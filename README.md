@@ -8,6 +8,7 @@ No more guessing or wasting time clicking links just to find out where they lead
 - 🔗 Fetches the final URL from shortened or redirected links.
 - 📋 Automatically adds `https://` if you forgot it!
 - 🌍 API + Beautiful HTML interface for ease of use.
+- 🖱️ **Chrome Extension Integration**: Quickly find and copy the final URL directly from your browser.
 
 ## 🚀 Live Demo
 [Check out the live version here!](https://url-redirect-final-destination.vercel.app) 🔥
@@ -42,6 +43,40 @@ https://url-redirect-final-destination.vercel.app/get-final-url?url=https://shor
 ```
 
 The server will follow the redirection chain and automatically redirect to the final destination.
+
+## 🧩 Chrome Extension
+
+### Features
+- **Find Final URL:** Input a URL in the extension popup, and get the final destination link instantly.
+- **Copy to Clipboard:** Easily copy the final URL to your clipboard using the "Copy" button.
+- **Right-Click Integration:** Right-click on any link to quickly find the final URL from the context menu.
+
+### Installation 🛠️
+
+#### Option 1: Developer Mode 🧑‍💻
+1. Download the source code and extract it to a folder.
+2. Go to `chrome://extensions/` in Chrome.
+3. Enable **Developer mode**.
+4. Click **Load unpacked** and select the folder where you extracted the extension.
+
+#### Option 2: Install CRX File 📦
+1. [Download the CRX file](#).
+2. Navigate to `chrome://extensions/`.
+3. Drag and drop the CRX file into the browser's extensions page.
+4. Confirm the installation.
+
+#### Option 3: Download and Install the Zipped Extension 📁
+1. [Download the ZIP file](#).
+2. Extract it to a folder.
+3. Go to `chrome://extensions/`.
+4. Enable **Developer mode**.
+5. Click **Load unpacked** and choose the folder with the extracted content.
+
+### Usage
+1. Click the extension icon to open the popup.
+2. Enter the URL in the text box.
+3. Click **Find URL** to see the final destination.
+4. Use the **Copy URL** button to easily copy the result.
 
 ## 🛠️ Installation
 
@@ -160,6 +195,5 @@ This project is licensed under the MIT License. Enjoy and modify as you like! �
 
 ---
 [![https://vercel.com?utm\_source=github\_readme\_stats\_team\&utm\_campaign=oss](https://raw.githubusercontent.com/anuraghazra/github-readme-stats/refs/heads/master/powered-by-vercel.svg)](https://vercel.com?utm_source=URL-Redirect-Final-Destination\&utm_campaign=oss)
-
 
 <sub><sup>⚙️ This content was generated with the assistance of Gen AI.</sup></sub>
