@@ -3,19 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final URL Finder</title>
-    <link rel="stylesheet" href="popup.css">
+    <title>URL Redirect Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 10px;
+            width: 300px;
+            height: 200px;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            word-wrap: break-word;
+        }
+        .copy-button {
+            margin-top: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Final URL Finder</h1>
-        <form id="urlForm">
-            <label for="urlInput">Enter a URL:</label>
-            <input type="text" id="urlInput" placeholder="Enter shortened URL here" required>
-            <button type="submit">Get Final URL</button>
-        </form>
+        <h3>Get Final URL</h3>
+        <input type="text" id="urlInput" placeholder="Enter shortened URL">
+        <button id="getFinalUrlButton">Find URL</button>
         <div id="result" class="result" style="display:none;"></div>
-        <button id="copyButton" style="display:none; margin-top: 10px;">Copy URL</button>
+        <button id="copyButton" class="copy-button" style="display:none;">Copy URL</button>
     </div>
     <script src="popup.js"></script>
 </body>

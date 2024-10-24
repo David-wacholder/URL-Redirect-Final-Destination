@@ -1,37 +1,52 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('urlForm').addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        const urlInput = document.getElementById('urlInput').value;
-        const resultDiv = document.getElementById('result');
-        const copyButton = document.getElementById('copyButton');
-        
-        resultDiv.style.display = 'none';
-        resultDiv.textContent = '';  // Clear previous result
+document.getElementById('getFinalUrlButton').addEventListener('click', async () => {
+    const urlInput = document.getElementById('urlInput').value;
+    const resultDiv = document.getElementById('result');
+    const copyButton = document.getElementById('copyButton');
+
+    if (!urlInput) {
+        resultDiv.textContent = "Please enter a URL.";
+        resultDiv.style.display = 'block';
         copyButton.style.display = 'none';
+        return;
+    }
 
-        try {
-            const responseUrl = `https://url-redirect-final-destination.vercel.app/get-final-url?url=${encodeURIComponent(urlInput)}`;
+    resultDiv.style.display = 'none';
+    copyButton.style.display = 'none';
+    resultDiv.textContent = '';
 
-            resultDiv.style.display = 'block';
-            resultDiv.innerHTML = `<a href="${responseUrl}" target="_blank">${responseUrl}</a>`;
-            copyButton.style.display = 'block';
+    try {
+        const response = await fetch('https://url-redirect-final-destination.vercel.app/get-final-url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: urlInput })
+        });
 
-            copyButton.addEventListener('click', function() {
-                navigator.clipboard.writeText(responseUrl)
-                    .then(() => {
-                        copyButton.textContent = 'Copied!';
-                        setTimeout(() => {
-                            copyButton.textContent = 'Copy URL';
-                        }, 2000);
-                    })
-                    .catch(err => console.error('Error copying to clipboard:', err));
-            });
-
-        } catch (error) {
-            console.error('Error fetching the final URL:', error);
-            resultDiv.style.display = 'block';
-            resultDiv.textContent = 'Error: Could not fetch the final URL.';
+        if (!response.ok) {
+            throw new Error('Failed to fetch the final URL.');
         }
+
+        const data = await response.json();
+
+        if (data.finalUrl) {
+            resultDiv.innerHTML = `<a href="${data.finalUrl}" target="_blank">${data.finalUrl}</a>`;
+            copyButton.style.display = 'block';
+        } else {
+            resultDiv.textContent = 'Error: Could not retrieve the final URL.';
+        }
+
+        resultDiv.style.display = 'block';
+    } catch (error) {
+        resultDiv.textContent = 'Error: ' + error.message;
+        resultDiv.style.display = 'block';
+        copyButton.style.display = 'none';
+    }
+});
+
+document.getElementById('copyButton').addEventListener('click', () => {
+    const resultText = document.getElementById('result').innerText;
+    navigator.clipboard.writeText(resultText).then(() => {
+        alert('URL copied to clipboard!');
     });
 });
