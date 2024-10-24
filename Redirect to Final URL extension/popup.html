@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final URL Finder</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Final URL Finder</h1>
+        <form id="urlForm">
+            <label for="urlInput">Enter a URL:</label>
+            <input type="text" id="urlInput" placeholder="Enter shortened URL here" required>
+            <button type="submit">Get Final URL</button>
+        </form>
+        <div id="result" class="result" style="display:none;"></div>
+        <button id="copyButton" style="display:none; margin-top: 10px;">Copy URL</button>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

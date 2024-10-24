@@ -1,18 +1,40 @@
 {
   "manifest_version": 3,
-  "name": "URL Redirect to Final Destination",
-  "version": "1.0",
-  "description": "Redirect any URL to its final destination using Vercel API.",
+  "name": "URL Redirect Finder",
+  "version": "1.1",
+  "description": "A Chrome extension that retrieves the final destination of a shortened URL.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
   "permissions": [
     "contextMenus",
     "activeTab"
   ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
   "background": {
     "service_worker": "background.js"
   },
-  "icons": {
-    "16": "icon16.png",
-    "48": "icon48.png",
-    "128": "icon128.png"
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "host_permissions": [
+    "https://url-redirect-final-destination.vercel.app/*"
+  ],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Open popup"
+    }
   }
 }
